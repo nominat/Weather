@@ -139,6 +139,7 @@ public class CurrentWeather {
 
 
     public static class Coord {
+
         public double getLon() {
             return lon;
         }

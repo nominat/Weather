@@ -13,16 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WeatherController {
 
-    CurrentWeatherService currentWeatherService;
+    private final CurrentWeatherService currentWeatherService;
 
     @Autowired
-    public WeatherController(CurrentWeatherRepository currentWeatherRepository, ForecastRepository forecastRepository, HistoricalWeatherRepository historicalWeatherRepository) {
-        this.currentWeatherService = new CurrentWeatherService(currentWeatherRepository, forecastRepository, historicalWeatherRepository);
+    public WeatherController(CurrentWeatherService currentWeatherService) {
+        this.currentWeatherService = currentWeatherService;
     }
+
 
     @GetMapping("/weather")
     public CurrentWeather getCurrentWeather(@RequestParam(value = "city", defaultValue = "New York") String cityName) {
-        return currentWeatherService.getCurrentWeather(cityName);
+        return currentWeatherService.getCurrentWeatherByCity(cityName);
     }
 
 }

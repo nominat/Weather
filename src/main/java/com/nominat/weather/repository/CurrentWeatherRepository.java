@@ -9,6 +9,7 @@ public interface CurrentWeatherRepository extends MongoRepository<CurrentWeather
     List<CurrentWeather> findByName(String cityName);
 
     List<CurrentWeather> findByNameAndDatetimeAfter(String cityName, java.time.LocalDateTime datetime);
+    List<CurrentWeather> findByCoordAndDatetimeAfter(CurrentWeather.Coord coord, java.time.LocalDateTime datetime);
     List<CurrentWeather> findAll();
     CurrentWeather save(CurrentWeather currentWeather);
 

@@ -20,15 +20,15 @@ weatherDB.createCollection('forecast');
 weatherDB.createCollection('historicalWeather');
 
 // Sample data
-var currentWeatherSample = {
-    location: "New York",
-    temperature: 22,
-    condition: "Clear",
-    humidity: 55,
-    windSpeed: 10,
-    windDirection: "NE",
-    lastUpdated: new Date()
-};
+// var currentWeatherSample = {
+//     location: "New York",
+//     temperature: 22,
+//     condition: "Clear",
+//     humidity: 55,
+//     windSpeed: 10,
+//     windDirection: "NE",
+//     lastUpdated: new Date()
+// };
 
 var forecastSample = {
     location: "New York",
@@ -57,6 +57,6 @@ var historicalWeatherSample = {
 };
 
 // Insert sample data
-weatherDB.currentWeather.insert(currentWeatherSample);
+// weatherDB.currentWeather.insert(currentWeatherSample);
 weatherDB.forecast.insert(forecastSample);
 weatherDB.historicalWeather.insert(historicalWeatherSample);

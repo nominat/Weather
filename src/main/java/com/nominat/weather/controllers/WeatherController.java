@@ -1,7 +1,6 @@
 package com.nominat.weather.controllers;
 
 import com.nominat.weather.entity.CurrentWeather;
-import com.nominat.weather.entity.Weather;
 import com.nominat.weather.repository.CurrentWeatherRepository;
 import com.nominat.weather.repository.ForecastRepository;
 import com.nominat.weather.repository.HistoricalWeatherRepository;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WeatherController {
 
-    private static final String template = "It's sunny today in %s!";
     CurrentWeatherService currentWeatherService;
 
     @Autowired
@@ -23,7 +21,8 @@ public class WeatherController {
     }
 
     @GetMapping("/weather")
-    public CurrentWeather getCurrentWeather(@RequestParam(value = "city", defaultValue = "New York") String name) {
-        return currentWeatherService.getCurrentWeather(name);
+    public CurrentWeather getCurrentWeather(@RequestParam(value = "city", defaultValue = "New York") String cityName) {
+        return currentWeatherService.getCurrentWeather(cityName);
     }
+
 }
